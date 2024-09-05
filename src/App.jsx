@@ -1,13 +1,14 @@
 
-import './App.css'
+import './App.css';
+import { Hero } from './components/Hero';
 
 function App() {
   
 
   return (
-    <>
-      <h1 className='text-red-600 font-bold text-2xl'>Hello World</h1>
-    </>
+    <div className='text-azureBlue font-open mx-auto'>
+      <Hero />
+    </div>
   )
 }
 
