@@ -19,7 +19,7 @@ export const ArticleCard = (props) => {
         className={`w-fit h-48 object-cover ${loaded && !error ? '' : 'hidden'}`}
         onLoad={() => setLoaded(true)}
         onError={handleImageError}
-        loading="lazy" // Lazy load image
+        // loading="lazy" // Lazy load image
       />
       {error && (
         <div className='w-full h-48 flex items-center justify-center bg-gray-300 text-gray-700'>
