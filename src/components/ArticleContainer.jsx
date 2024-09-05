@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import meal1 from "../assets/meal1.png";
 import meal2 from "../assets/meal2.png";
 import meal3 from "../assets/meal3.png";
@@ -8,6 +8,7 @@ import meal6 from "../assets/meal6.png";
 import { ArticleCard } from './ArticleCard';
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
+// Articles data
 const articles = [
   [
     {
@@ -49,17 +50,39 @@ const articles = [
       desc: "PLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard..."
     }
   ]
-]
+];
 
 export const ArticleContainer = () => {
-  const [page, setPage] = useState(0)
-  const currentArticles = articles[page].map(art => (
+  const [page, setPage] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload all images
+    const loadImages = async () => {
+      const promises = articles.flat().map(article => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = article.img;
+          img.onload = resolve;
+          img.onerror = resolve; // Resolve even if there's an error to not block further loading
+        });
+      });
+      await Promise.all(promises);
+      setImagesLoaded(true);
+    };
+
+    loadImages();
+  }, []);
+
+  const currentArticles = imagesLoaded ? (articles[page] || []).map(art => (
     <ArticleCard key={art.key} img={art.img} header={art.header} desc={art.desc} />
-  ))
+  )) : <div>Loading...</div>;
 
   const handlePageChange = (newPage) => {
-    setPage(newPage)
-  }
+    if (newPage >= 0 && newPage < articles.length) {
+      setPage(newPage);
+    }
+  };
 
   return (
     <section className="w-10/12 mx-auto">
@@ -71,15 +94,15 @@ export const ArticleContainer = () => {
       </div>
       <div className="flex items-center gap-2 my-20 justify-center">
         <AiOutlineLeft
-          className={`border ${page === 1 ? 'text-azureBlue border-azureBlue' : 'text-gray-400 border-gray-400'} h-6 w-6 rounded-md cursor-pointer`}
-          onClick={() => handlePageChange(0)}
+          className={`border ${page === 0 ? 'text-gray-400 border-gray-400' : 'text-azureBlue border-azureBlue'} h-6 w-6 rounded-md cursor-pointer`}
+          onClick={() => handlePageChange(page - 1)}
         />
-        <span>{page === 1 ? '2/2' : '1/2'}</span>
+        <span>{page + 1}/{articles.length}</span>
         <AiOutlineRight
-          className={`border ${page === 0 ? 'text-azureBlue border-azureBlue' : 'text-gray-400 border-gray-400'} h-6 w-6 rounded-md cursor-pointer`}
-          onClick={() => handlePageChange(1)}
+          className={`border ${page === articles.length - 1 ? 'text-gray-400 border-gray-400' : 'text-azureBlue border-azureBlue'} h-6 w-6 rounded-md cursor-pointer`}
+          onClick={() => handlePageChange(page + 1)}
         />
       </div>
     </section>
-  )
-}
+  );
+};
