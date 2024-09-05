@@ -1,7 +1,7 @@
-import React from 'react'
-import truck from "../assets/foodTruck.png"
-import {FiInstagram} from "react-icons/fi"
-import {FaTwitter, FaFacebookF} from "react-icons/fa"
+import React from 'react';
+import truck from "../assets/foodTruck.png";
+import {FiInstagram} from "react-icons/fi";
+import {FaTwitter, FaFacebookF} from "react-icons/fa";
 
 export const Footer = () => {
   return (

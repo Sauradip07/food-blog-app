@@ -1,7 +1,7 @@
-import React from 'react'
-import truck from "../assets/foodTruck.png"
-import curve from "../assets/curve.png"
-import pizza from "../assets/mainPizza.png"
+import React from 'react';
+import truck from "../assets/foodTruck.png";
+import curve from "../assets/curve.png";
+import pizza from "../assets/mainPizza.png";
 
 export const Hero = () => {
   return (
