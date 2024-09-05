@@ -16,7 +16,7 @@ export const ArticleCard = (props) => {
       <img 
         src={props.img}
         alt={props.header}
-        className={`w-full h-48 object-cover ${loaded && !error ? '' : 'hidden'}`}
+        className={`w-fit h-48 object-cover ${loaded && !error ? '' : 'hidden'}`}
         onLoad={() => setLoaded(true)}
         onError={handleImageError}
         loading="lazy" // Lazy load image
