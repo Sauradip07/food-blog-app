@@ -15,12 +15,12 @@ export const Hero = () => {
         </button>
       </header>
       <main className='w-9/12 lg:w-10/12 mx-auto'>
-        <section className='lg:w-[30%] lg:h-screen flex flex-col justify-center items-center lg:items-start text-center lg:text-left'>
+        <section className='flex flex-col justify-center items-center lg:items-start text-center lg:text-left lg:w-[30%] lg:h-screen'>
           <h1 className='font-source font-black text-4xl lg:text-6xl'>
             Discover the <span className='text-rosePink'>Best</span> Food and Drinks
           </h1>
           <p className='my-10 lg:w-11/12 text-sm lg:text-base'>Naturally made Healthcare Products for the better care & support of your body.</p>
-          <button className={`bg-rosePink rounded-3xl w-40 h-12 text-white font-bold z-50 border`}>
+          <button className={`w-40 h-12 bg-rosePink rounded-3xl text-white font-bold border z-50`}>
             Explore Now!
           </button>
         </section>
