@@ -28,7 +28,7 @@ export const Footer = () => {
           </ul>
         </div>
         <div className='flex flex-col lg:w-3/12 lg:items-end'>
-          <h3 className='w-[51%] font-source font-semibold text-xl text-azureBlue hidden lg:block'>Social Links</h3>
+          <h3 className='w-[66%] font-source font-semibold text-xl text-azureBlue hidden lg:block'>Social Links</h3>
           <ul className='flex flex-col gap-5 lg:gap-24 items-center lg:items-end mt-3'>
             <p className='lg:hidden'>© 2022 Food Truck Example</p>
             <div className='flex justify-between text-azureBlue w-6/12 lg:w-10/12'>
