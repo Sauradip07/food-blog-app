@@ -4,7 +4,7 @@ import aboutImg from "../assets/aboutImg.png"
 
 export const About = () => {
   return (
-    <section className='flex justify-between text-center my-20 lg:my-40 gray-gradient lg:px-64 lg:text-left py-32 px-10'>
+    <section className='flex justify-between text-center my-20 lg:mt-10 lg:mb-40  gray-gradient lg:px-64 lg:text-left py-32 px-10'>
       <img src={aboutImg} className='hidden lg:block'></img>
       <div className='flex flex-col justify-center items-center w-full lg:w-[48%] gap-10 lg:gap-6'>
         <h2 className='font-poppins font-medium text-4xl'>About Us</h2>
